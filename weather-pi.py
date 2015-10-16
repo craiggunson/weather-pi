@@ -4,7 +4,7 @@ from StringIO import StringIO
 buffer = StringIO()
 c = pycurl.Curl()
 #get melbourne weather observations
-c.setopt(c.URL, 'http://www.bom.gov.au/fwo/IDV60901/IDV60901.95936.json')
+c.setopt(c.URL, 'http://www.bom.gov.au/fwo/IDV60901/IDV60901.95872.json')
 c.setopt(c.WRITEDATA, buffer)
 c.perform()
 c.close()
@@ -41,7 +41,7 @@ def get_ip_address(ifname):
 myip = str(get_ip_address('eth0'))
 print myip
 
-text = (("wind direction:"+wind_dir, (255, 100, 0)), ("     wind speed:"+wind_spd_kt,(100,0,255)), ("     wind gust:"+wind_gust,(100,0,50)),("     ip:"+myip, (0, 0, 100)))
+text = (("wind direction:"+wind_dir, (255, 100, 0)), ("     wind speed:"+wind_spd_kt,(100,0,255)), ("     wind gust:"+wind_gust,(255,0,50)),("     ip:"+myip, (0, 0, 100)))
 
  
 font =  ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf", 16)
