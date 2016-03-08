@@ -14,6 +14,15 @@ def getweather():
   wind_spd_kt = str(heat['observations']['data'][0]['wind_spd_kt'])
   return
 
+def getairtemp():
+  global airtemp
+  response = urllib2.urlopen('http://www.bom.gov.au/fwo/IDV60901/IDV60901.94866.json')
+  body = response.read()
+  data = json.loads(body)
+  airtemp = str(data['observations']['data'][0]['air_temp'])
+  return
+
+
 def get_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     return socket.inet_ntoa(fcntl.ioctl(
@@ -23,7 +32,7 @@ def get_ip_address(ifname):
     )[20:24])
 
 def writeppm():
-  text = (("     wind direction:"+wind_dir, (255, 100, 0)), ("     wind speed:"+wind_spd_kt,(100,0,255)), ("     wind gust:"+wind_gust,(255,0,50)),("     ip:"+myip, (0, 0, 100)))
+  text = (("   wind direction:"+wind_dir, (255, 100, 0)), ("   wind speed:"+wind_spd_kt,(100,0,255)), ("   wind gust:"+wind_gust,(255,0,50)),("   airtemp:"+airtemp,(100,100,100)),("   ip:"+myip, (0, 0, 100)))
   font =  ImageFont.truetype("./FreeMonoBold.ttf", 16)
   all_text = ""
   for text_color_pair in text:
@@ -46,9 +55,11 @@ def writeppm():
 #print myip
 
 getweather()
+getairtemp()
 print "wind direction:",wind_dir
 print "wind speed:",wind_spd_kt,"knots"
 print "wind gust:",wind_gust,"knots"
+print "air temp:",airtemp,"C"
 
 writeppm()
 
