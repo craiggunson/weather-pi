@@ -1,4 +1,4 @@
-import urllib2,json,socket,fcntl,struct,os
+import urllib2,json,socket,fcntl,struct,os,time
 from PIL import ImageFont,Image,ImageDraw #pip install Pillow
 myip="0.1.2.3"
 
@@ -62,5 +62,5 @@ while True:
   print "wind gust:",wind_gust,"knots"
   print "air temp:",airtemp,"C"
   writeppm()
-  os.system("sudo /home/pi/rpi-rgb-led-matrix-master/led-matrix displaythis.ppm -r16 -p8 -D1 -d -t60")
+  os.system("sudo /home/pi/rpi-rgb-led-matrix-master/led-matrix displaythis.ppm -r16 -p8 -D1 -t60 -d")
   time.sleep(61)
