@@ -63,4 +63,4 @@ print "air temp:",airtemp,"C"
 
 writeppm()
 
-#os.system("sudo /home/pi/rpi-rgb-led-matrix-master/led-matrix test.ppm -r16 -p8 -D1 -d")
+os.system("sudo /home/pi/rpi-rgb-led-matrix-master/led-matrix displaythis.ppm -r16 -p8 -D1 -d")
