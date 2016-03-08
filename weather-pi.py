@@ -51,16 +51,16 @@ def writeppm():
   im.save("displaythis.ppm")
   return
 
-#myip = str(get_ip_address('eth0'))
-#print myip
+myip = str(get_ip_address('eth0'))
+print myip
 
-getweather()
-getairtemp()
-print "wind direction:",wind_dir
-print "wind speed:",wind_spd_kt,"knots"
-print "wind gust:",wind_gust,"knots"
-print "air temp:",airtemp,"C"
-
-writeppm()
-
-os.system("sudo /home/pi/rpi-rgb-led-matrix-master/led-matrix displaythis.ppm -r16 -p8 -D1 -d")
+while True:
+  getweather()
+  getairtemp()
+  print "wind direction:",wind_dir
+  print "wind speed:",wind_spd_kt,"knots"
+  print "wind gust:",wind_gust,"knots"
+  print "air temp:",airtemp,"C"
+  writeppm()
+  os.system("sudo /home/pi/rpi-rgb-led-matrix-master/led-matrix displaythis.ppm -r16 -p8 -D1 -d -t60")
+  time.sleep(61)
