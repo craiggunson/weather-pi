@@ -63,4 +63,4 @@ Another included demo, which displays time.  Note the while loop is needed to co
 The other python examples show how you can take any text and render it to a Portable Pixel Map (ppm) file for display on the LED Matrix.
 
 
-![Sample](https://github.com/craiggunson/weather-pi/blob/master/sample.jpg)
+![Sample](./sample.jpg)
